@@ -29,7 +29,7 @@ class DetailRestaurantActivity  : AppCompatActivity() {
 
     setSupportActionBar(binding.toolbar)
 
-    val detailRestaurant = intent.getParcelableExtra<Restaurant>(EXTRA_DATA)
+    val detailRestaurant = intent?.getParcelableExtra<Restaurant>(EXTRA_DATA)
     showDetailRestaurant(detailRestaurant)
   }
 
