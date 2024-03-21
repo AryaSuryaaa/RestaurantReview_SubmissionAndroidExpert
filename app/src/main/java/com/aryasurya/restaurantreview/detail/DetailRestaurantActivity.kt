@@ -1,5 +1,6 @@
 package com.aryasurya.restaurantreview.detail
 
+import android.annotation.SuppressLint
 import android.os.Bundle
 import android.util.Log
 import android.widget.Toast
@@ -13,6 +14,7 @@ import com.aryasurya.restaurantreview.databinding.ActivityDetailRestaurantBindin
 import com.google.gson.Gson
 import dagger.hilt.android.AndroidEntryPoint
 
+@SuppressLint("LintImplError")
 @AndroidEntryPoint
 class DetailRestaurantActivity  : AppCompatActivity() {
 
