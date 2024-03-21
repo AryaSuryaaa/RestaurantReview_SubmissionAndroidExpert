@@ -42,6 +42,7 @@ class HomeFragment : Fragment() {
                 val intent = Intent(activity, DetailRestaurantActivity::class.java)
                 intent.putExtra(DetailRestaurantActivity.EXTRA_DATA, selectedData)
                 startActivity(intent)
+
             }
 
             observeRestaurantData()
