@@ -2,6 +2,7 @@ package com.aryasurya.restaurantreview.detail
 
 import android.os.Bundle
 import android.util.Log
+import android.widget.Toast
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
@@ -9,9 +10,9 @@ import com.bumptech.glide.Glide
 import com.aryasurya.restaurantreview.R
 import com.aryasurya.restaurantreview.core.domain.model.Restaurant
 import com.aryasurya.restaurantreview.databinding.ActivityDetailRestaurantBinding
+import com.google.gson.Gson
 import dagger.hilt.android.AndroidEntryPoint
 
-@Suppress("DEPRECATION")
 @AndroidEntryPoint
 class DetailRestaurantActivity  : AppCompatActivity() {
 
@@ -29,8 +30,15 @@ class DetailRestaurantActivity  : AppCompatActivity() {
 
     setSupportActionBar(binding.toolbar)
 
-    val detailRestaurant = intent.getParcelableExtra<Restaurant>(EXTRA_DATA)
-    showDetailRestaurant(detailRestaurant)
+//    val detailRestaurant = intent.getParcelableExtra<Restaurant>(EXTRA_DATA)
+//    showDetailRestaurant(detailRestaurant)
+    val restaurantJson = intent.getStringExtra(EXTRA_DATA)
+    if (restaurantJson != null) {
+      val detailRestaurant = Gson().fromJson(restaurantJson, Restaurant::class.java)
+      showDetailRestaurant(detailRestaurant)
+    } else {
+      Toast.makeText(this, "Tidak ada data", Toast.LENGTH_SHORT).show()
+    }
   }
 
   private fun showDetailRestaurant(detailRestaurant: Restaurant?) {

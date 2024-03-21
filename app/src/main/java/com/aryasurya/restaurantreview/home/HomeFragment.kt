@@ -12,6 +12,7 @@ import com.aryasurya.restaurantreview.core.data.Resource
 import com.aryasurya.restaurantreview.core.ui.RestaurantAdapter
 import com.aryasurya.restaurantreview.databinding.FragmentHomeBinding
 import com.aryasurya.restaurantreview.detail.DetailRestaurantActivity
+import com.google.gson.Gson
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -39,8 +40,12 @@ class HomeFragment : Fragment() {
 
             restaurantAdapter = RestaurantAdapter()
             restaurantAdapter.onItemClick = { selectedData ->
+
+//                val intent = Intent(activity, DetailRestaurantActivity::class.java)
+//                intent.putExtra(DetailRestaurantActivity.EXTRA_DATA, selectedData)
+//                startActivity(intent)
                 val intent = Intent(activity, DetailRestaurantActivity::class.java)
-                intent.putExtra(DetailRestaurantActivity.EXTRA_DATA, selectedData)
+                intent.putExtra(DetailRestaurantActivity.EXTRA_DATA, Gson().toJson(selectedData))
                 startActivity(intent)
 
             }
