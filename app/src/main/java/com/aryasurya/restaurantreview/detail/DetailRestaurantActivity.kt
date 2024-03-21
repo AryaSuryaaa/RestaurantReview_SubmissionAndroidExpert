@@ -11,7 +11,7 @@ import com.aryasurya.restaurantreview.core.domain.model.Restaurant
 import com.aryasurya.restaurantreview.databinding.ActivityDetailRestaurantBinding
 import dagger.hilt.android.AndroidEntryPoint
 
-
+@Suppress("DEPRECATION")
 @AndroidEntryPoint
 class DetailRestaurantActivity  : AppCompatActivity() {
 
@@ -29,7 +29,7 @@ class DetailRestaurantActivity  : AppCompatActivity() {
 
     setSupportActionBar(binding.toolbar)
 
-    val detailRestaurant = intent?.getParcelableExtra<Restaurant>(EXTRA_DATA)
+    val detailRestaurant = intent.getParcelableExtra<Restaurant>(EXTRA_DATA)
     showDetailRestaurant(detailRestaurant)
   }
 
