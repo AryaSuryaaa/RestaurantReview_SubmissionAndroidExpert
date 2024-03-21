@@ -26,7 +26,7 @@ class DetailRestaurantActivity  : AppCompatActivity() {
   override fun onCreate(savedInstanceState: Bundle?) {
     super.onCreate(savedInstanceState)
     binding = ActivityDetailRestaurantBinding.inflate(layoutInflater)
-    setContentView(binding.root)
+    setContentView(R.layout.activity_detail_restaurant)
 
     setSupportActionBar(binding.toolbar)
 
